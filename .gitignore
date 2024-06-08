@@ -1,0 +1,10 @@
+node_modules/
+.idea/
+.vscode/
+config.properties
+secret.key
+logs/
+temp/
+*.class
+*.jar
+*.war
