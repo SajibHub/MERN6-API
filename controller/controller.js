@@ -101,3 +101,29 @@ export const Update = async (req, res, next) => {
     });
   }
 };
+
+export const Deleted = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const product = await createModel.findById(id);
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+    const deleteProduct = await createModel.findByIdAndDelete(id);
+    if (!deleteProduct) {
+      return res.status(400).json({
+        message: "Something went wrong",
+      });
+    }
+    return res.status(200).json({
+      message: "Product deleted successfully",
+      product: deleteProduct,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server Internal Error",
+    });
+  }
+};
