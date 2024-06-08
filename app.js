@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import helmet from "helmet";
+import cors from "cors";
 
 import Connect from "./config/MongoDB.js";
 import Router from "./router/Router.js";
